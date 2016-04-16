@@ -69,6 +69,7 @@
     "axios": "^0.9.1",
     "chart.js": "^1.0.2",
     "debug": "^2.2.0",
+    "express": "^4.13.4",
     "flexboxgrid": "^6.3.0",
     "history": "^2.0.0",
     "ionicons": "^3.0.0-alpha.3",
