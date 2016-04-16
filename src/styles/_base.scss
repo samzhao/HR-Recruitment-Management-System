@@ -130,7 +130,7 @@ a {
   }
 }
 
-.applicant, .position, .criteria-set-view {
+.row.applicant, .position, .criteria-set-view {
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -368,6 +368,16 @@ a {
   border-radius: 3px;
 }
 
+.direction-btn {
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 3px;
+  transition: background .3s ease;
+
+  &:hover {
+    background: darken(white, 2%);
+  }
+}
 
 
 

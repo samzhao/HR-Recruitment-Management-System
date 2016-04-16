@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import autobind from 'autobind-decorator'
 
 import classes from './ApplicantDetailView.scss'
 
@@ -10,7 +11,10 @@ import Icon from 'components/Icon'
 import EditableRadar from 'containers/EditableRadar'
 import Resume from 'components/Resume'
 
-export default class ApplicantDetailView extends Component {
+class ApplicantDetailView extends Component {
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  }
   getAverageSkillDistribution(positionId) {
     const { applicants } = this.props
     positionId = parseInt(positionId, 10)
@@ -31,6 +35,57 @@ export default class ApplicantDetailView extends Component {
     return {
       skillsLabels, skillsValues
     }
+  }
+
+  findApplicant(direction) {
+    const { applicants, params, location } = this.props
+    const id = parseInt(params.id, 10)
+    let { positionId } = location.query
+    positionId = parseInt(positionId, 10)
+
+    const positionApplicants = applicants.filter(app => {
+      return _.some(app.positions, { id: positionId })
+    })
+
+    const applicant = _.find(applicants, { id })
+    const applicantIndex = _.findIndex(positionApplicants, { id })
+
+    let newId = null
+
+    if (direction === 'next') {
+      if (applicantIndex === positionApplicants.length - 1) {
+        newId = 0
+      } else {
+        newId = applicantIndex+1
+      }
+    } else if (direction === 'prev') {
+      if (applicantIndex === 0) {
+        newId = positionApplicants.length - 1
+      } else {
+        newId = applicantIndex-1
+      }
+    } else {
+      newId = 0
+    }
+
+    return { newId: positionApplicants[newId].id, positionId }
+  }
+
+  goToApplicant(id, positionId) {
+    console.log(id)
+    console.log(this.context.router)
+    this.context.router.push(`/applicants/${id}?positionId=${positionId}`)
+  }
+
+  onNext(e) {
+    e.preventDefault()
+    const { newId, positionId } = this.findApplicant('next')
+    this.goToApplicant(newId, positionId)
+  }
+  onPrev(e) {
+    e.preventDefault()
+    const { newId, positionId } = this.findApplicant('prev')
+    this.goToApplicant(newId, positionId)
   }
 
   render() {
@@ -89,7 +144,15 @@ export default class ApplicantDetailView extends Component {
         </div>
 
         <div className="col-xs-6">
-          <h3 className={classes.h3}>Resume</h3>
+          <h3 className={classes.h3}>
+            <div className="row">
+              <div className="col-xs-10">Resume</div>
+              <div className="col-xs-2" style={{textAlign: 'right'}}>
+                <a href="#" onClick={this.onPrev} className="direction-btn"><Icon name="ion-ios-arrow-back"/></a>
+                <a href="#" onClick={this.onNext} className="direction-btn"><Icon name="ion-ios-arrow-forward"/></a>
+              </div>
+            </div>
+          </h3>
           <div className="applicant-resume">
             <Resume applicant={ applicant }/>
           </div>
@@ -114,6 +177,12 @@ export default class ApplicantDetailView extends Component {
     )
   }
 }
+
+ApplicantDetailView.contextTypes = {
+  router: PropTypes.object.isRequired
+}
+
+export default autobind(ApplicantDetailView)
 
 const mapStateToProps = (state) => ({
   applicants: state.applicants,
