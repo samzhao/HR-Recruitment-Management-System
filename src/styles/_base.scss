@@ -170,8 +170,9 @@ a {
 
 .drag-item {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1000px;
+  left: -1000px;
+  display: hidden;
   padding: 10px;
   border-radius: 2px;
   background: white;
@@ -331,6 +332,8 @@ a {
 }
 
 .find-candidates-btn {
+  display: inline-block;
+  padding: 3px 8px;
   position: relative;
   text-transform: uppercase;
   top: -5px;

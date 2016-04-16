@@ -6,6 +6,7 @@ import PositionsView from 'views/PositionsView'
 import PositionDetailView from 'views/PositionDetailView'
 
 import ApplicantDetailView from 'views/ApplicantDetailView'
+import CriteriaSetView from 'views/CriteriaSetView'
 
 export default (store) => (
   <Route path='/' component={CoreLayout}>
@@ -16,6 +17,8 @@ export default (store) => (
     </Route>
     <Route path='/applicants'>
       <Route path=':id' component={ApplicantDetailView}></Route>
+    </Route>
+    <Route path='/criteria' component={CriteriaSetView}>
     </Route>
   </Route>
 )

@@ -23,6 +23,8 @@ class Keyword extends Component {
 
     e.dataTransfer.setData('data', JSON.stringify(data))
     e.dataTransfer.setDragImage(this.crt, 0, 0)
+
+    return false
   }
 
   dragEnd(e) {

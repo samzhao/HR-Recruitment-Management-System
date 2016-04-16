@@ -62,7 +62,7 @@ export default class ApplicantDetailView extends Component {
 
     if (criteriaSets.length) {
       applyCriteriaSetsBtn = (
-        <button className="find-candidates-btn">Find Candidates</button>
+        <Link to="/criteria" className="find-candidates-btn">Find Candidates</Link>
       )
     }
 
@@ -92,9 +92,6 @@ export default class ApplicantDetailView extends Component {
           <h3 className={classes.h3}>Resume</h3>
           <div className="applicant-resume">
             <Resume applicant={ applicant }/>
-          </div>
-          <div className="applicant-supporting-docs">
-            <small>Supporting Docs</small>
           </div>
         </div>
 
