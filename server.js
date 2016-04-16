@@ -7,7 +7,7 @@ var app = express();
 
 app.set('port', (process.env.PORT || 3000));
 
-var root = __dirname + '/dist'
+var root = process.cwd() + '/dist'
 
 app.use('/', express.static(root));
 app.use(bodyParser.json());
