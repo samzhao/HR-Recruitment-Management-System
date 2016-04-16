@@ -12,7 +12,7 @@ For example:
 */
 
 .container.core {
-  padding: 60px 0;
+  height: 100%;
 }
 
 .icon {
@@ -128,6 +128,29 @@ a {
   &.badge-in-progress, &.badge-round-2 {
     background: #69A6D9;
   }
+}
+
+.applicant, .position, .criteria-set-view {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.criteria-set-view {
+  height: 100%;
+  align-content: flex-start;
+  align-items: stretch;
+
+  .col-xs-12 {
+    flex: 1 1 auto;
+  }
+}
+
+.position, .criteria-set-view {
+  padding-bottom: 0;
+}
+
+.positions {
+  padding: 70px 0;
 }
 
 .applicant-avatar {
@@ -343,4 +366,34 @@ a {
   font-size: 0.5em;
   color: white;
   border-radius: 3px;
+}
+
+
+
+
+
+
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: white;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
 }
