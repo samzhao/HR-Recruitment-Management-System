@@ -11,13 +11,36 @@ import EditableRadar from 'containers/EditableRadar'
 import Resume from 'components/Resume'
 
 export default class ApplicantDetailView extends Component {
+  getAverageSkillDistribution(positionId) {
+    const { applicants } = this.props
+    positionId = parseInt(positionId, 10)
+
+    const applicantSkillDists = applicants.filter(app => {
+      let positionIds = app.positions.map(pos => pos.id)
+      return positionIds.includes(positionId)
+    }).map(app => app.skillDistribution)
+
+    const skillsLabels = applicantSkillDists[0].map(skill => skill.label)
+    const skillsValues = skillsLabels.map(skill => {
+      let skillDist = applicantSkillDists.map(dist => {
+        return dist.find(d => d.label === skill).value
+      })
+      return +_.mean(skillDist).toFixed(1)
+    })
+
+    return {
+      skillsLabels, skillsValues
+    }
+  }
+
   render() {
-    const { params, applicants, criteriaSets=[] } = this.props
+    const { params, location, applicants, criteriaSets=[] } = this.props
 
     const id = params.id
+    const { positionId } = location.query
     const applicant = applicants.find(app => +app.id === +id)
     const name = applicant.name.first.toUpperCase() + ' ' + applicant.name.last.toUpperCase()
-    const location = _.capitalize(applicant.location.city) + ', ' + _.startCase(applicant.location.state)
+    const applicantLocation = _.capitalize(applicant.location.city) + ', ' + _.startCase(applicant.location.state)
 
     const avatarStyle = {
       display: 'inline-block',
@@ -28,7 +51,12 @@ export default class ApplicantDetailView extends Component {
     }
 
     const skillsLabels = applicant.skillDistribution.map(skill => skill.label)
-    const skillsValues = applicant.skillDistribution.map(skill => skill.value)
+    let skillsValues = applicant.skillDistribution.map(skill => skill.value)
+
+    if (!_.isEmpty(positionId) || positionId === 0) {
+      let positionSkillsValues = this.getAverageSkillDistribution(positionId).skillsValues
+      skillsValues = [skillsValues, positionSkillsValues]
+    }
 
     let applyCriteriaSetsBtn = null
 
@@ -57,7 +85,7 @@ export default class ApplicantDetailView extends Component {
         </div>
 
         <div className="col-xs-12" style={{color: '#888'}}>
-          { location }
+          { applicantLocation }
         </div>
 
         <div className="col-xs-6">
@@ -74,7 +102,7 @@ export default class ApplicantDetailView extends Component {
           <div className="row">
             <div className="col-xs-12">
               <h3 className={classes.h3}>Skills Overview</h3>
-              <EditableRadar labels={skillsLabels} values={skillsValues} editable={false} color={[226, 122, 112]} />
+              <EditableRadar multiple={true} labels={skillsLabels} values={skillsValues} editable={false} color={[226, 122, 112]} />
             </div>
             <div className="col-xs-12">
               <h3 className={classes.h3} style={{ marginBottom: '10px' }}>
@@ -89,8 +117,6 @@ export default class ApplicantDetailView extends Component {
     )
   }
 }
-
-//            <iframe src="http://philipcdavis.com/resume/formal" frameBorder="0" width="100%" height="600px"></iframe>
 
 const mapStateToProps = (state) => ({
   applicants: state.applicants,

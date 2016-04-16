@@ -12,23 +12,39 @@ export default class EditableRadar extends Component {
   }
 
   render() {
-    const { labels, values, editable, width, height, color } = this.props
+    const { labels, values, editable, width, height, color, multiple } = this.props
 
     if (_.isEmpty(labels) || _.isEmpty(values)) return null
 
-    const [r, g, b] = color ? color : [151,187,205]
+    let [r, g, b] = color ? color : [151,187,205]
 
-    const data = {
-      labels,
-      datasets: [{
+    const chartData = {
+      fillColor: `rgba(${r},${g},${b},0.2)`,
+      strokeColor: `rgba(${r},${g},${b},1)`,
+      pointColor: `rgba(${r},${g},${b},1)`,
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: `rgba(${r},${g},${b},1)`,
+      data: multiple ? values[0] : values
+    }
+
+    let bgChartData = {}
+    if (multiple) {
+      [r, g, b] = [200, 200, 200]
+      bgChartData = {
         fillColor: `rgba(${r},${g},${b},0.2)`,
         strokeColor: `rgba(${r},${g},${b},1)`,
         pointColor: `rgba(${r},${g},${b},1)`,
         pointStrokeColor: '#fff',
         pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(151,187,205,1)',
-        data: values
-      }]
+        pointHighlightStroke: `rgba(${r},${g},${b},1)`,
+        data: values[1]
+      }
+    }
+
+    const data = {
+      labels,
+      datasets: multiple ? [chartData, bgChartData] : [chartData]
     }
 
     return (

@@ -14,7 +14,12 @@ export default class ApplicantsList extends Component {
 
       return (
         <div className="col-xs-2 applicant" key={applicant.id}>
-          <Link to={`/applicants/${applicant.id}`} style={{marginBottom: '35px'}}>
+          <Link to={
+            {
+              pathname: `/applicants/${applicant.id}`,
+              query: { positionId }
+            }
+          } style={{marginBottom: '35px'}}>
             <ApplicantAvatar name={applicant.name} url={applicant.image} />
             <div className={"applicant-status badge badge-"+s}>
               { applicantStatus }

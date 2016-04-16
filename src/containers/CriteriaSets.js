@@ -102,7 +102,9 @@ class CriteriaSets extends Component {
 
     let content = (
       <div className={ "col-xs-12 drop-zone" + (isDropping ? ' is-dropping' : '') }>
-        { helperText }
+        <div style={isDropping ? { padding: '14px 0' } : {}}>
+          { helperText }
+        </div>
       </div>
     )
 

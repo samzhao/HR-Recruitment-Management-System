@@ -53,17 +53,26 @@ const mockApplicants = [
       {
         "company": "Yahoo",
         "position": "Database Admin",
-        "duration": 3
+        "duration": 3,
+        "start_date": "Jul 2010"
       },
       {
         "company": "Sony",
         "position": "Software Engineer",
-        "duration": 47
+        "duration": 47,
+        "start_date": "Jan 2013"
       },
       {
         "company": "Amazon",
         "position": "Software Developer",
-        "duration": 43
+        "duration": 43,
+        "start_date": "Jun 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofW",
+        "program": "B.Sc. Cognitive Psychology"
       }
     ]
   },
@@ -117,17 +126,26 @@ const mockApplicants = [
       {
         "company": "Mastercard",
         "position": "System Architect",
-        "duration": 60
+        "duration": 60,
+        "start_date": "Oct 2011"
       },
       {
         "company": "Sony",
         "position": "System Architect",
-        "duration": 7
+        "duration": 7,
+        "start_date": "Sep 2012"
       },
       {
         "company": "Expedia",
         "position": "Database Admin",
-        "duration": 22
+        "duration": 22,
+        "start_date": "Jul 2013"
+      }
+    ],
+    "education": [
+      {
+        "institute": "SFU",
+        "program": "Masters Computer Science"
       }
     ]
   },
@@ -181,17 +199,26 @@ const mockApplicants = [
       {
         "company": "Expedia",
         "position": "System Admin",
-        "duration": 19
+        "duration": 19,
+        "start_date": "Aug 2010"
       },
       {
         "company": "Sony",
         "position": "Database Admin",
-        "duration": 45
+        "duration": 45,
+        "start_date": "Feb 2011"
       },
       {
         "company": "Amazon",
         "position": "Database Admin",
-        "duration": 36
+        "duration": 36,
+        "start_date": "Mar 2013"
+      }
+    ],
+    "education": [
+      {
+        "institute": "SFU",
+        "program": "B.Sc. Cognitive Psychology"
       }
     ]
   },
@@ -245,17 +272,26 @@ const mockApplicants = [
       {
         "company": "Netflix",
         "position": "Software Developer",
-        "duration": 51
+        "duration": 51,
+        "start_date": "Dec 2012"
       },
       {
         "company": "Sony",
         "position": "Database Admin",
-        "duration": 42
+        "duration": 42,
+        "start_date": "Jul 2014"
       },
       {
         "company": "Mastercard",
         "position": "System Admin",
-        "duration": 11
+        "duration": 11,
+        "start_date": "Jun 2015"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofT",
+        "program": "B.A. Communications"
       }
     ]
   },
@@ -309,17 +345,26 @@ const mockApplicants = [
       {
         "company": "Yahoo",
         "position": "System Architect",
-        "duration": 7
+        "duration": 7,
+        "start_date": "Mar 2010"
       },
       {
         "company": "Tesla",
         "position": "Software Developer",
-        "duration": 18
+        "duration": 18,
+        "start_date": "Sep 2011"
       },
       {
         "company": "Amazon",
         "position": "System Admin",
-        "duration": 35
+        "duration": 35,
+        "start_date": "Oct 2013"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofW",
+        "program": "B.Sc. Software Engineering"
       }
     ]
   },
@@ -373,17 +418,26 @@ const mockApplicants = [
       {
         "company": "Tesla",
         "position": "System Admin",
-        "duration": 56
+        "duration": 56,
+        "start_date": "Jan 2011"
       },
       {
         "company": "Mastercard",
         "position": "System Admin",
-        "duration": 34
+        "duration": 34,
+        "start_date": "Aug 2011"
       },
       {
         "company": "Amazon",
         "position": "Software Engineer",
-        "duration": 51
+        "duration": 51,
+        "start_date": "May 2012"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofT",
+        "program": "B.Sc. Software Engineering"
       }
     ]
   },
@@ -437,17 +491,26 @@ const mockApplicants = [
       {
         "company": "Expedia",
         "position": "System Architect",
-        "duration": 18
+        "duration": 18,
+        "start_date": "Jul 2012"
       },
       {
         "company": "Google",
         "position": "System Architect",
-        "duration": 28
+        "duration": 28,
+        "start_date": "Jun 2013"
       },
       {
         "company": "Tesla",
         "position": "System Admin",
-        "duration": 48
+        "duration": 48,
+        "start_date": "Mar 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofT",
+        "program": "B.Sc. Software Engineering"
       }
     ]
   },
@@ -501,17 +564,26 @@ const mockApplicants = [
       {
         "company": "Google",
         "position": "System Admin",
-        "duration": 51
+        "duration": 51,
+        "start_date": "Jan 2011"
       },
       {
         "company": "Mastercard",
         "position": "System Admin",
-        "duration": 47
+        "duration": 47,
+        "start_date": "Oct 2011"
       },
       {
         "company": "Sony",
         "position": "Software Developer",
-        "duration": 17
+        "duration": 17,
+        "start_date": "Nov 2011"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UBC",
+        "program": "Masters Computer Science"
       }
     ]
   },
@@ -565,17 +637,26 @@ const mockApplicants = [
       {
         "company": "Amazon",
         "position": "System Architect",
-        "duration": 8
+        "duration": 8,
+        "start_date": "Sep 2011"
       },
       {
         "company": "Yahoo",
         "position": "Software Developer",
-        "duration": 29
+        "duration": 29,
+        "start_date": "Jan 2012"
       },
       {
         "company": "VMWare",
         "position": "Database Admin",
-        "duration": 43
+        "duration": 43,
+        "start_date": "Feb 2012"
+      }
+    ],
+    "education": [
+      {
+        "institute": "Emily Carr",
+        "program": "B.Sc. Computer Science"
       }
     ]
   },
@@ -629,17 +710,26 @@ const mockApplicants = [
       {
         "company": "IBM",
         "position": "Database Admin",
-        "duration": 32
+        "duration": 32,
+        "start_date": "Mar 2011"
       },
       {
         "company": "Google",
         "position": "Software Developer",
-        "duration": 49
+        "duration": 49,
+        "start_date": "Sep 2013"
       },
       {
         "company": "VMWare",
         "position": "Software Engineer",
-        "duration": 16
+        "duration": 16,
+        "start_date": "Feb 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "SFU",
+        "program": "B.Sc. Software Engineering"
       }
     ]
   },
@@ -693,17 +783,26 @@ const mockApplicants = [
       {
         "company": "Tesla",
         "position": "Database Admin",
-        "duration": 8
+        "duration": 8,
+        "start_date": "Apr 2011"
       },
       {
         "company": "Expedia",
         "position": "Database Admin",
-        "duration": 50
+        "duration": 50,
+        "start_date": "Aug 2012"
       },
       {
         "company": "Netflix",
         "position": "System Architect",
-        "duration": 11
+        "duration": 11,
+        "start_date": "Dec 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "Emily Carr",
+        "program": "B.Sc. Software Engineering"
       }
     ]
   },
@@ -757,17 +856,26 @@ const mockApplicants = [
       {
         "company": "Tesla",
         "position": "Database Admin",
-        "duration": 35
+        "duration": 35,
+        "start_date": "Feb 2010"
       },
       {
         "company": "VMWare",
         "position": "System Architect",
-        "duration": 58
+        "duration": 58,
+        "start_date": "Apr 2010"
       },
       {
         "company": "Google",
         "position": "System Architect",
-        "duration": 3
+        "duration": 3,
+        "start_date": "Jan 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "SFU",
+        "program": "B.Sc. Cognitive Psychology"
       }
     ]
   },
@@ -821,17 +929,26 @@ const mockApplicants = [
       {
         "company": "Mastercard",
         "position": "System Admin",
-        "duration": 14
+        "duration": 14,
+        "start_date": "Feb 2010"
       },
       {
         "company": "Yahoo",
         "position": "Software Developer",
-        "duration": 31
+        "duration": 31,
+        "start_date": "Apr 2013"
       },
       {
         "company": "Amazon",
         "position": "System Admin",
-        "duration": 51
+        "duration": 51,
+        "start_date": "Jan 2014"
+      }
+    ],
+    "education": [
+      {
+        "institute": "Emily Carr",
+        "program": "B.Sc. Cognitive Psychology"
       }
     ]
   },
@@ -885,17 +1002,26 @@ const mockApplicants = [
       {
         "company": "IBM",
         "position": "Database Admin",
-        "duration": 50
+        "duration": 50,
+        "start_date": "Feb 2012"
       },
       {
         "company": "Yahoo",
         "position": "Software Developer",
-        "duration": 17
+        "duration": 17,
+        "start_date": "Oct 2012"
       },
       {
         "company": "VMWare",
         "position": "System Architect",
-        "duration": 9
+        "duration": 9,
+        "start_date": "Apr 2013"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofT",
+        "program": "B.A. Communications"
       }
     ]
   },
@@ -949,17 +1075,26 @@ const mockApplicants = [
       {
         "company": "Tesla",
         "position": "Software Engineer",
-        "duration": 22
+        "duration": 22,
+        "start_date": "Jul 2010"
       },
       {
         "company": "Google",
         "position": "System Architect",
-        "duration": 44
+        "duration": 44,
+        "start_date": "Oct 2012"
       },
       {
         "company": "Expedia",
         "position": "Software Engineer",
-        "duration": 49
+        "duration": 49,
+        "start_date": "Sep 2013"
+      }
+    ],
+    "education": [
+      {
+        "institute": "UofT",
+        "program": "Masters Computer Science"
       }
     ]
   }

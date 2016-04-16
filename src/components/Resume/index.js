@@ -7,7 +7,7 @@ import Keyword from 'components/Keyword'
 export default class Resume extends Component {
   render() {
     const { applicant } = this.props
-    let { name, image, location, duration, history, role, skillDistribution } = applicant
+    let { name, image, location, duration, history, education, role, skillDistribution } = applicant
 
     name = _.capitalize(name.first) + ' ' + _.capitalize(name.last)
     location = _.capitalize(location.city)
@@ -37,6 +37,26 @@ export default class Resume extends Component {
           </div>
         </div>
 
+        <div className={ `${classes.education} ${classes.section} ${classes.second}` }>
+          <div className={ classes.wrapper }>
+            <h1>Education & <br/> Certifications</h1>
+            <ul className={ `${classes.educationList} ${classes.listFlat}` }>
+              {
+                education.map((ed, index) => (
+                  [
+                    <li>
+                      <strong>
+                        <Keyword type="program" word={ ed.program } />
+                      </strong>{ '—  ' }
+                      <Keyword type="institution" word={ ed.institute }/>
+                    </li>
+                  ]
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+
         <div className={ `${classes.work} ${classes.section} ${classes.second}` }>
           <div className={ classes.wrapper }>
             <h1>Work<br/>Experiences</h1>
@@ -44,11 +64,13 @@ export default class Resume extends Component {
               {
                 history.map((hist, index) => (
                   [
-                    <li style={{ fontWeight: 'bold', color: '#333', fontSize: '1.2em', marginBottom: '-5px', marginTop: '6px' }}>
-                      <Keyword type="company" word={ hist.company } />
+                    <li style={{ fontSize: '0.8em', marginBottom: '-3px', marginTop: '12px' }}>
+                      { hist.start_date }
                     </li>,
                     <li>
-                      { hist.position }
+                      <span style={{ fontWeight: 'bold', color: '#333', fontSize: '1.2em' }}>
+                        <Keyword type="company" word={ hist.company } />
+                      </span>{ '—  ' }<Keyword type="position" word={ hist.position }/>
                     </li>
                   ]
                 ))

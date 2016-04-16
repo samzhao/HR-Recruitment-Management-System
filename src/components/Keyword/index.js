@@ -31,10 +31,14 @@ class Keyword extends Component {
   }
 
   render() {
-    const { word, style={}, className='' } = this.props
+    const { word, style={}, className='', type } = this.props
 
     return (
-      <span className={ `keyword ${className} ${classes.keyword}` } style={ style } draggable='true' onDragStart={ this.dragStart } onDragEnd={ this.dragEnd }>
+      <span className={ `keyword ${className} ${classes.keyword}` }
+            style={ style }
+            draggable='true'
+            onDragStart={ this.dragStart }
+            onDragEnd={ this.dragEnd }>
         { word }
       </span>
     )

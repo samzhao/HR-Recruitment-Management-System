@@ -18,10 +18,10 @@ export default class PositionDetailView extends Component {
 
     const skillsLabels = applicantSkillDists[0].map(skill => skill.label)
     const skillsValues = skillsLabels.map(skill => {
-      let dist = applicantSkillDists.map(dist => {
+      let skillDist = applicantSkillDists.map(dist => {
         return dist.find(d => d.label === skill).value
-      }).reduce((prev, curr) => prev+curr, 0)
-      return dist / skillsLabels.length
+      })
+      return +_.mean(skillDist).toFixed(1)
     })
 
     return {
